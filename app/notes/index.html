@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimal-ui">
+    <title>Week 6</title>
+    <link rel="stylesheet" href="css/app.css">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="row main-content">
+
+      </div>
+    </div>
+    <!-- TEMPLATES -->
+
+    <script id="people-template" type="text/x-handlebars-template">
+
+      <div class="col-md-4">
+        <h3>First Names</h3>
+          <ul class="first-names-list list-group">
+          {{#each people}}
+            <li class="first-names list-group-item">{{attributes.firstName}}</li>
+          {{/each}}
+          </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>Last Names</h3>
+          <ul class="last-names-list list-group">
+          {{#each people}}
+            <li class="last-names list-group-item">{{attributes.lastName}}</li>
+          {{/each}}
+          </ul>
+      </div>
+      <div class="col-md-4">
+        <h3>Ages</h3>
+          <ul class="ages-list list-group">
+        {{#each people}}
+            <li class="ages list-group-item">{{attributes.age}}</li>
+        {{/each}}
+          </ul>
+      </div>
+
+    </script>
+
+    <script src="js/bundle.js"></script>
+  </body>
+</html>
