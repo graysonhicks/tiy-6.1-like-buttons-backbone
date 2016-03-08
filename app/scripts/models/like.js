@@ -9,31 +9,31 @@ var ButtonModel = Backbone.Model.extend({
   increase: function() {
     var likes = this.get("likes");
     this.set({"likes": (likes + 1)});
-    return likes
+    return likes;
   },
   tagSet: function(){
     var likes = this.get("likes");
     var tag = this.get("tag");
-
-    if(likes == 1){
-      if(tag == "Forks"){
-        this.set({"tag": "Fork"});
-        return this.get("tag");
-    } else if(tag == "Likes"){
+    
+      if(likes != 1){
+        if(tag == "Fork"){
+          this.set({"tag": "Forks"});
+          return this.get("tag");
+        }
+        if(tag == "Like"){
+            this.set({"tag": "Likes"});
+            return this.get("tag");
+          }
+      } else {
+        if(tag == "Forks"){
+          this.set({"tag": "Fork"});
+          return this.get("tag");
+        }
+        if(tag == "Likes"){
           this.set({"tag": "Like"});
           return this.get("tag");
         }
-    }
-    
-    if(likes == 2){
-      if(tag == "Fork"){
-        this.set({"tag": "Forks"});
-        return this.get("tag");
-    } else if(tag == "Like"){
-          this.set({"tag": "Likes"});
-          return this.get("tag");
-        }
-    }
+      }
   }
 });
 

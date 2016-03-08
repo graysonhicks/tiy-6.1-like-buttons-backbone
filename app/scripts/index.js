@@ -5,9 +5,9 @@ var ButtonModel = require('./models/like');
 var ButtonCollection = require('./models/buttons');
 
 $(document).ready(function(){
-  doTemplate('.main-content', '#book-button-template', bookButton);
-  appendTemplate('.main-content', '#gram-button-template', gramButton);
-  appendTemplate('.main-content', '#git-button-template', gitButton);
+  doTemplate('.main-content', '#book-button-template', bookButton.toJSON());
+  appendTemplate('.main-content', '#gram-button-template', gramButton.toJSON());
+  appendTemplate('.main-content', '#git-button-template', gitButton.toJSON());
   $('.book-like-button').addClass('btn-secondary');
 });
 
@@ -27,14 +27,14 @@ $('.main-content').on('click', '.book-like-button', function(evt){
   bookButton.increase();
   bookButton.tagSet();
   $('.book-like-button').removeClass('btn-secondary');
-  doTemplate('.book-like-button', '#book-button-update', bookButton);
+  doTemplate('.book-like-button', '#book-button-update', bookButton.toJSON());
   activeButton();
 });
 
 $('.main-content').on('click', '.gram-like-button', function(evt){
   gramButton.increase();
   gramButton.tagSet();
-  doTemplate('.gram-like-button', '#gram-button-update', gramButton);
+  doTemplate('.gram-like-button', '#gram-button-update', gramButton.toJSON());
   $('.gram-like-button').addClass('gram-liked');
   $('.gram-heart').removeClass('fa-heart-o');
   $('.gram-heart').addClass('fa-heart');
@@ -43,7 +43,7 @@ $('.main-content').on('click', '.gram-like-button', function(evt){
 $('.main-content').on('click', '.git-like-button', function(evt){
   gitButton.increase();
   gitButton.tagSet();
-  doTemplate('.git-like-button', '#git-button-update', gitButton);
+  doTemplate('.git-like-button', '#git-button-update', gitButton.toJSON());
   $('.git-like-button').addClass('btn-success');
 });
 
